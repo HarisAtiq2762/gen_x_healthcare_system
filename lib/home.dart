@@ -39,7 +39,7 @@ class Home extends StatelessWidget {
                   Container(
                     height: 0.35.sh,
                     width: 1.0.sw,
-                    color: Theme.of(context).primaryColor,
+                    color: themeChange.darkTheme==true?HexColor('#1c3496'):Color(0xff0E1D36),
                     child: Padding(
                       padding: const EdgeInsets.fromLTRB(8.0, 90.0, 0.0, 0.0),
                       child: Text('Dashboard',style: GoogleFonts.lato(color: Colors.white,fontSize: 40.sp,fontWeight: FontWeight.bold),),
@@ -54,12 +54,12 @@ class Home extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('${DateTime.now().day}, ${months[DateTime.now().month]} ${days[DateTime.now().weekday-1]}',style: GoogleFonts.robotoSlab(color: Colors.black,fontSize: 25.0.sp),),
+                            Text('${DateTime.now().day}, ${months[DateTime.now().month-1]} ${days[DateTime.now().weekday-1]}',style: GoogleFonts.robotoSlab(color: Theme.of(context).textSelectionColor,fontSize: 25.0.sp),),
                             SizedBox(height: 0.02.sh,),
                             Container(
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10.0),
-                                color: Colors.grey[200]
+                                color: Theme.of(context).indicatorColor,
                               ),
                               child: Column(
                                 children: [
@@ -69,8 +69,8 @@ class Home extends StatelessWidget {
                                     children: [
                                       Column(
                                         children: [
-                                          Text('${vital.data!=null?vital.data.senorsData.first.heartRate:'...'}',style: GoogleFonts.robotoSlab(color: Colors.black,fontSize: 20.0.sp)),
-                                          Text('Beats Per Minute',style: GoogleFonts.robotoSlab(color: Colors.black,fontSize: 15.0.sp)),
+                                          Text('${vital.data!=null?vital.data.senorsData.first.heartRate:'...'}',style: GoogleFonts.robotoSlab(color: Theme.of(context).textSelectionColor,fontSize: 20.0.sp)),
+                                          Text('Beats Per Minute',style: GoogleFonts.robotoSlab(color: Theme.of(context).textSelectionColor,fontSize: 15.0.sp,)),
                                         ],
                                       ),
                                       Container(
@@ -86,7 +86,7 @@ class Home extends StatelessWidget {
                             Container(
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10.0),
-                                  color: Colors.grey[200]
+                                  color: Theme.of(context).indicatorColor
                               ),
                               child: Column(
                                 children: [
@@ -96,8 +96,8 @@ class Home extends StatelessWidget {
                                     children: [
                                       Column(
                                         children: [
-                                          Text('${vital.data!=null?vital.data.senorsData.first.oxygenSaturation:'...'}',style: GoogleFonts.robotoSlab(color: Colors.black,fontSize: 20.0.sp)),
-                                          Text('Oxygen Saturation',style: GoogleFonts.robotoSlab(color: Colors.black,fontSize: 15.0.sp)),
+                                          Text('${vital.data!=null?vital.data.senorsData.first.oxygenSaturation:'...'}',style: GoogleFonts.robotoSlab(color: Theme.of(context).textSelectionColor,fontSize: 20.0.sp)),
+                                          Text('Oxygen Saturation',style: GoogleFonts.robotoSlab(color: Theme.of(context).textSelectionColor,fontSize: 15.0.sp)),
                                         ],
                                       ),
                                       Container(
@@ -113,7 +113,7 @@ class Home extends StatelessWidget {
                             Container(
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10.0),
-                                  color: Colors.grey[200]
+                                  color: Theme.of(context).indicatorColor
                               ),
                               child: Column(
                                 children: [
@@ -123,8 +123,8 @@ class Home extends StatelessWidget {
                                     children: [
                                       Column(
                                         children: [
-                                          Text('${vital.data!=null?vital.data.senorsData.first.bodyTemperature:'...'}',style: GoogleFonts.robotoSlab(color: Colors.black,fontSize: 20.0.sp)),
-                                          Text('Body Temperature',style: GoogleFonts.robotoSlab(color: Colors.black,fontSize: 15.0.sp)),
+                                          Text('${vital.data!=null?vital.data.senorsData.first.bodyTemperature:'...'}',style: GoogleFonts.robotoSlab(color: Theme.of(context).textSelectionColor,fontSize: 20.0.sp)),
+                                          Text('Body Temperature',style: GoogleFonts.robotoSlab(color: Theme.of(context).textSelectionColor,fontSize: 15.0.sp)),
                                         ],
                                       ),
                                       Container(
@@ -162,7 +162,7 @@ class Home extends StatelessWidget {
                       width: 0.2.sw,
                       height: 0.22.sh,
                       decoration: BoxDecoration(
-                          color: HexColor('#7250ff'),
+                          color: themeChange.darkTheme==true?HexColor('#11137D'):HexColor('#7250ff'),
                           borderRadius: BorderRadius.circular(35.0)
                       ),
                       child: Column(
@@ -182,7 +182,7 @@ class Home extends StatelessWidget {
                       width: 0.2.sw,
                       height: 0.22.sh,
                       decoration: BoxDecoration(
-                          color: HexColor('#00d5ff'),
+                          color: themeChange.darkTheme==true?HexColor('#0C7F96'):HexColor('#00d5ff'),
                           borderRadius: BorderRadius.circular(35.0)
                       ),
                       child: Column(
@@ -194,7 +194,7 @@ class Home extends StatelessWidget {
                               child: FaIcon(FontAwesomeIcons.water,color: Colors.white,)
                             ),
                           ),
-                          Text('${vital.data!=null?vital.data.senorsData.first.oxygenSaturation:'...'}\nSpo2',style: GoogleFonts.lato(color: Colors.white,fontSize: 20.sp,fontWeight: FontWeight.bold),),
+                          Text('  ${vital.data!=null?vital.data.senorsData.first.oxygenSaturation.split('.').first+'%':'...'}\n  Spo2',style: GoogleFonts.lato(color: Colors.white,fontSize: 20.sp,fontWeight: FontWeight.bold),),
                         ],
                       ),
                     ),
@@ -202,7 +202,7 @@ class Home extends StatelessWidget {
                       width: 0.2.sw,
                       height: 0.22.sh,
                       decoration: BoxDecoration(
-                          color: HexColor('#f7517f'),
+                          color: themeChange.darkTheme==true?HexColor('#A02345'):HexColor('#f7517f'),
                           borderRadius: BorderRadius.circular(35.0)
                       ),
                       child: Column(

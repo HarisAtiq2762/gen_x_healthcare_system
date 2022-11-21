@@ -38,7 +38,7 @@ class Styles {
 
       primaryColor: isDarkTheme ? HexColor('#1b3395') : HexColor('#1b3395'),
 
-      indicatorColor: isDarkTheme ? Color(0xff0E1D36) : Colors.white,//Color(0xffCBDCF8),
+      indicatorColor: isDarkTheme ? Color(0xff0E1D36) : Colors.grey[200],//Color(0xffCBDCF8),
       buttonColor: isDarkTheme ? Color(0xff3B3B3B) : Color(0xffF1F5FB),
 
       hintColor: isDarkTheme ? Color(0xff280C0B) : Color(0xffEECED3),
